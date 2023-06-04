@@ -73,50 +73,31 @@
                     <!-- To make this form functional, sign up at-->
                     <!-- https://startbootstrap.com/solution/contact-forms-->
                     <!-- to get an API token!-->
-                    <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                    <form id="contactForm" method="post">
                         <!-- Name input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                            <input class="form-control" name="name" id="name" type="text" placeholder="홍길동"/>
                             <label for="name">이름</label>
-                            <div class="invalid-feedback" data-sb-feedback="name:required">이름은 필수 입력입니다.</div>
                         </div>
                         <!-- Email address input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                            <label for="email">비밀번호</label>
-                            <div class="invalid-feedback" data-sb-feedback="email:required">비밀번호는 필수 입력입니다.</div>
+                            <input class="form-control" name="password" id="password" type="password" placeholder="홍길동"/>
+                            <label for="password">비밀번호</label>
                         </div>
                         <!-- Phone number input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                            <label for="phone">비밀번호 확인</label>
-                            <div class="invalid-feedback" data-sb-feedback="phone:required">일치하지 않습니다.</div>
+                            <input class="form-control" name="password2" id="password2" type="password" placeholder="홍길동"/>
+                            <label for="password2">비밀번호 확인</label>
                         </div>
-                        <!-- Message input-->
                         <div class="form-floating mb-3">
-                            <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                            <label for="message">최애 맥주 선택</label>
-                            <div class="invalid-feedback" data-sb-feedback="message:required">반드시 선택하셔야합니다.</div>
+                            <select class="form-control" name="beer" id="beer">
+                                {% for beer in beer_list %}
+                                <option value='{{tmp}}'>{{beer}}</option>
+                                {% endfor %}
+                            </select>
+                            <label for="password2">최애 맥주 선택</label>
                         </div>
-                        <!-- Submit success message-->
-                        <!---->
-                        <!-- This is what your users will see when the form-->
-                        <!-- has successfully submitted-->
-                        <div class="d-none" id="submitSuccessMessage">
-                            <div class="text-center mb-3">
-                                <div class="fw-bolder">Form submission successful!</div>
-                                To activate this form, sign up at
-                                <br />
-                                <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                            </div>
-                        </div>
-                        <!-- Submit error message-->
-                        <!---->
-                        <!-- This is what your users will see when there is-->
-                        <!-- an error submitting the form-->
-                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                        <!-- Submit Button-->
-                        <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Send</button>
+                        <button class="btn btn-primary btn-xl abled" id="submitButton" type="submit">Send</button>
                     </form>
                 </div>
             </div>
