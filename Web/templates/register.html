@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Freelancer - Start Bootstrap Theme</title>
+        <title>회원가입</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="/static/assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -66,7 +66,18 @@
             <!-- Contact Section Form-->
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-xl-7">
-                    <!-- * * * * * * * * * * * * * * *-->
+                    {% with msgs = get_flashed_messages(with_categories=true) %}
+                        {% if msgs %}
+                            {% for category, msg in msgs %}
+                                <div class="alert alert-{{ category }}" role="alert">
+                                    <strong>{{ msg }}</strong>
+                                    <button type="button" class="btn-close" aria-label="Close"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+
+                        <!-- * * * * * * * * * * * * * * *-->
                     <!-- * * SB Forms Contact Form * *-->
                     <!-- * * * * * * * * * * * * * * *-->
                     <!-- This form is pre-integrated with SB Forms.-->
@@ -76,23 +87,23 @@
                     <form id="contactForm" method="post">
                         <!-- Name input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" name="name" id="name" type="text" placeholder="홍길동"/>
+                            <input class="form-control" name="name" id="name" type="text" placeholder="홍길동" required/>
                             <label for="name">이름</label>
                         </div>
                         <!-- Email address input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" name="password" id="password" type="password" placeholder="홍길동"/>
+                            <input class="form-control" name="password" id="password" type="password" placeholder="홍길동" required/>
                             <label for="password">비밀번호</label>
                         </div>
                         <!-- Phone number input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" name="password2" id="password2" type="password" placeholder="홍길동"/>
+                            <input class="form-control" name="password2" id="password2" type="password" placeholder="홍길동" required/>
                             <label for="password2">비밀번호 확인</label>
                         </div>
                         <div class="form-floating mb-3">
                             <select class="form-control" name="beer" id="beer">
                                 {% for beer in beer_list %}
-                                <option value='{{tmp}}'>{{beer}}</option>
+                                <option value='{{beer}}'>{{beer}}</option>
                                 {% endfor %}
                             </select>
                             <label for="password2">최애 맥주 선택</label>

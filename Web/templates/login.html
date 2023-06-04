@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Freelancer - Start Bootstrap Theme</title>
+        <title>로그인</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="/static/assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -76,15 +76,15 @@
                     <form id="contactForm" method="post">
                         <!-- Name input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="name" name="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                            <input class="form-control" id="name" name="name" type="text" placeholder="Enter your name..." required/>
                             <label for="name">이름</label>
-                            <div class="invalid-feedback" data-sb-feedback="name:required">이름은 필수 입력입니다.</div>
+
                         </div>
                         <!-- Email address input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="password" name="password" type="password" placeholder="name@example.com" data-sb-validations="required,email" />
+                            <input class="form-control" id="password" name="password" type="password" placeholder="name@example.com" required />
                             <label for="password">비밀번호</label>
-                            <div class="invalid-feedback" data-sb-feedback="email:required">비밀번호는 필수 입력입니다.</div>
+                           
                         </div>
                         <button class="btn btn-primary btn-xl abled" id="submitButton" type="submit">Send</button>
                     </form>
