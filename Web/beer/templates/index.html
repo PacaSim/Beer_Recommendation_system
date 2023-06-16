@@ -74,7 +74,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="/static/assets/img/beer_image/cass-fresh.jpg" alt="..." />
+                            <img class="img-fluid" src="/static/assets/img/beer_image/{{result.0}}.jpg" alt="..." />
                         </div>
                     </div>
                     <!-- Portfolio Item 2-->
@@ -83,7 +83,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="/static/assets/img/beer_image/San Miguel.jpg" alt="..." />
+                            <img class="img-fluid" src="/static/assets/img/beer_image/{{result.1}}.jpg" alt="..." />
                         </div>
                     </div>
                     <!-- Portfolio Item 3-->
@@ -92,7 +92,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="/static/assets/img/beer_image/Budweiser.jpg" alt="..." />
+                            <img class="img-fluid" src="/static/assets/img/beer_image/{{result.2}}.jpg" alt="..." />
                         </div>
                     </div>
                     <!-- Portfolio Item 4-->
@@ -101,7 +101,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="/static/assets/img/beer_image/Kloud Fitz Super Clear.jpg" alt="..." />
+                            <img class="img-fluid" src="/static/assets/img/beer_image/{{result.3}}.jpg" alt="..." />
                         </div>
                     </div>
                     <!-- Portfolio Item 5-->
@@ -110,7 +110,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="/static/assets/img/beer_image/OB Premier Pilsner.jpg" alt="..." />
+                            <img class="img-fluid" src="/static/assets/img/beer_image/{{result.4}}.jpg" alt="..." />
                         </div>
                     </div>
                     <!-- Portfolio Item 6-->
@@ -119,7 +119,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="/static/assets/img/beer_image/Egger Zwickl.jpg" alt="..." />
+                            <img class="img-fluid" src="/static/assets/img/beer_image/{{result.5}}.jpg" alt="..." />
                         </div>
                     </div>
                 </div>
@@ -201,7 +201,7 @@
                     <div class="row justify-content-center">
                       <div class="col-lg-8">
                         <!-- Portfolio Modal - Title -->
-                        <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Cass Fresh</h2>
+                        <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">{{result.0}}</h2>
                         <!-- Icon Divider -->
                         <div class="divider-custom">
                           <div class="divider-custom-line"></div>
@@ -209,12 +209,15 @@
                           <div class="divider-custom-line"></div>
                         </div>
                         <!-- Portfolio Modal - Image -->
-                        <img class="img-fluid rounded mb-5" src="/static/assets/img/beer_image/cass-fresh.jpg" alt="..." />
+                        <img class="img-fluid rounded mb-5" src="/static/assets/img/beer_image/{{result.0}}.jpg" alt="..." />
                         <!-- Portfolio Modal - Text -->
                         <p class="mb-4">맥주 소개</p>
                         <!-- Star Rating -->
                         <div class="mb-4">
                             <div class="rate">
+                                <form action="" method="post">
+                                <input type="hidden" name="user_id" value="{{ current_user.id }}">
+                                <input type="hidden" name="beer" value="{{result.0}}">
                                 <label for="rating" title="평점">평점</label>
                                 <input type="number" name="rating" min="0" max="5" step="0.5">
                               </div>
@@ -222,12 +225,18 @@
                           </div>
                           <!-- Comment Section -->
                           <div class="mb-4">
-                            <textarea class="form-control" id="comment-input" rows="4" placeholder="Write a comment"></textarea>
+                            <textarea  name="comment" class="form-control" id="comment-input" rows="4" placeholder="Write a comment"></textarea>
                             <button class="btn btn-primary mt-3" onclick="submitComment()">Submit Comment</button>
                           </div>
+                        </form>
                           <!-- Comments Display -->
                           <div id="comments">
-                            <!-- Display comments dynamically using JavaScript -->
+                            {% for rate in all_rates1 %}
+                                <h5>{{ current_user.name }}</h5>
+                                <small>{{ rate.beer }}</small>
+                                <small>{{ rate.rating }}</small>
+                                <small>{{ rate.oneline }}</small>
+                        {% endfor %}
                           </div>
                     </div>
                     </div>
@@ -236,7 +245,7 @@
               </div>
             </div>
           </div>
-          
+
         <!-- Portfolio Modal 2-->
         <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
             <div class="modal-dialog modal-xl">
@@ -246,22 +255,46 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tasty Cake</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
+                                    <!-- Portfolio Modal - Title -->
+                        <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">{{result.1}}</h2>
+                        <!-- Icon Divider -->
+                        <div class="divider-custom">
+                          <div class="divider-custom-line"></div>
+                          <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                          <div class="divider-custom-line"></div>
+                        </div>
+                        <!-- Portfolio Modal - Image -->
+                        <img class="img-fluid rounded mb-5" src="/static/assets/img/beer_image/{{result.1}}.jpg" alt="..." />
+                        <!-- Portfolio Modal - Text -->
+                        <p class="mb-4">맥주 소개</p>
+                        <!-- Star Rating -->
+                        <div class="mb-4">
+                            <div class="rate">
+                                <form action="" method="post">
+                                <input type="hidden" name="user_id" value="{{ current_user.id }}">
+                                <input type="hidden" name="beer" value="{{result.1}}">
+                                <label for="rating" title="평점">평점</label>
+                                <input type="number" name="rating" min="0" max="5" step="0.5">
+                              </div>
+                              
+                          </div>
+                          <!-- Comment Section -->
+                          <div class="mb-4">
+                            <textarea  name="comment" class="form-control" id="comment-input" rows="4" placeholder="Write a comment"></textarea>
+                            <button class="btn btn-primary mt-3" onclick="submitComment()">Submit Comment</button>
+                          </div>
+                        </form>
+                          <!-- Comments Display -->
+                          <div id="comments">
+                            {% for rate in all_rates %}
+                            {% if rate.beer == "Cass Fresh" %}
+                                <h5>{{ current_user.name }}</h5>
+                                <small>{{ rate.beer }}</small>
+                                <small>{{ rate.rating }}</small>
+                                <small>{{ rate.oneline }}</small>
+                            {% endif %}
+                        {% endfor %}
+                          </div>
                                 </div>
                             </div>
                         </div>
@@ -279,7 +312,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Circus Tent</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">{{result.2}}</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -311,7 +344,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Controller</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">{{result.3}}</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -343,7 +376,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">{{result.4}}</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -375,7 +408,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">{{result.5}}</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
