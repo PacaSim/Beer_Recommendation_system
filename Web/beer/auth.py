@@ -19,6 +19,7 @@ def register():
       password = request.form.get('password')
       password2 = request.form.get('password2')
       beer = request.form.get('beer')
+      detail = request.form.get('detail')
 
       # 유효성 검사
       user = User.query.filter_by(name=name).first()
@@ -27,7 +28,7 @@ def register():
       elif len(password) < 7:
           flash('패스워드가 너무 짧습니다.', category='error')
       else:
-          new_user = User(name=name, password=generate_password_hash(password, method='sha256'), beer=beer)
+          new_user = User(name=name, password=generate_password_hash(password, method='sha256'), beer=beer, detail=detail)
           db.session.add(new_user)
           db.session.commit()
           # 회원가입 시 자동 로그인

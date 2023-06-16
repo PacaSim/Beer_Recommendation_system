@@ -7,10 +7,12 @@ class User(db.Model, UserMixin):
   password = db.Column(db.String(200))
   beer = db.Column(db.String(200))
   rates = db.relationship('Rate')
+  detail = db.Column(db.String)
 
 class Rate(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+  user_name = db.Column(db.String(80))
   beer = db.Column(db.String(200))
   rating = db.Column(db.Float)
   oneline = db.Column(db.String(300))

@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>회원가입</title>
+        <title>추천</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="/static/assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -56,7 +56,7 @@
       <section class="page-section" id="contact">
         <div class="container">
             <!-- Contact Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">회원가입</h2>
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">로그인</h2>
             <!-- Icon Divider-->
             <div class="divider-custom">
                 <div class="divider-custom-line"></div>
@@ -66,18 +66,7 @@
             <!-- Contact Section Form-->
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-xl-7">
-                    {% with msgs = get_flashed_messages(with_categories=true) %}
-                        {% if msgs %}
-                            {% for category, msg in msgs %}
-                                <div class="alert alert-{{ category }}" role="alert">
-                                    <strong>{{ msg }}</strong>
-                                    <button type="button" class="btn-close" aria-label="Close"></button>
-                                </div>
-                            {% endfor %}
-                        {% endif %}
-                    {% endwith %}
-
-                        <!-- * * * * * * * * * * * * * * *-->
+                    <!-- * * * * * * * * * * * * * * *-->
                     <!-- * * SB Forms Contact Form * *-->
                     <!-- * * * * * * * * * * * * * * *-->
                     <!-- This form is pre-integrated with SB Forms.-->
@@ -87,36 +76,17 @@
                     <form id="contactForm" method="post">
                         <!-- Name input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" name="name" id="name" type="text" placeholder="홍길동" required/>
+                            <input class="form-control" id="name" name="name" type="text" placeholder="Enter your name..." required/>
                             <label for="name">ID</label>
+
                         </div>
                         <!-- Email address input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" name="password" id="password" type="password" placeholder="홍길동" required/>
+                            <input class="form-control" id="password" name="password" type="password" placeholder="name@example.com" required />
                             <label for="password">비밀번호</label>
+                           
                         </div>
-                        <!-- Phone number input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" name="password2" id="password2" type="password" placeholder="홍길동" required/>
-                            <label for="password2">비밀번호 확인</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <select class="form-control" name="beer" id="beer">
-                                {% for beer in beer_list %}
-                                <option value='{{beer}}'>{{beer}}</option>
-                                {% endfor %}
-                            </select>
-                            <label for="password2">최애 맥주 선택</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <select class="form-control" name="detail" id="beer">
-                                <option value='Aroma'>향</option>
-                                <option value='Flavor'>맛, 풍미</option>
-                                <option value='Mouthfeel'>마우스필(바디감, 탄산감, 알코올, 떫은맛 등)</option>
-                            </select>
-                            <label for="password2">선호하는 취향</label>
-                        </div>
-                        <button class="btn btn-primary btn-xl abled" id="submitButton" type="submit">회원가입</button>
+                        <button class="btn btn-primary btn-xl abled" id="submitButton" type="submit">Send</button>
                     </form>
                 </div>
             </div>

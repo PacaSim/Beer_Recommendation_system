@@ -5,7 +5,7 @@
 3,Tsingtao
 4,Heineken
 5,Kirin Ichiban
-6,Sapporo Premium Beer
+6,Sapporo Premium Beer / Draft Beer
 7,Stella Artois
 8,Guinness Draught
 9,Kronenbourg 1664 Blanc
@@ -35,14 +35,14 @@
 33,Edelweiss Weissbier Snowfresh
 34,Heineken Dark Lager
 35,Kozel Černý (Dark) 10°
-36,Guinness Original 4.2 (IrelandUK)
+36,Guinness Original 4.2% (Ireland/UK)
 37,Jeju Wit Ale
 38,Stephans Bräu Premium Pilsener
 39,Stephans Bräu Premium Lager
 40,Stephans Bräu Hefe-Weizen Naturtrüb Alkoholfrei
-41,Franziskaner Hefe-Weissbier
+41,Franziskaner Hefe-Weissbier / Weissbier Naturtrub
 42,Egger Grapefruit Radler
-43,Bavaria Pilsener
+43,Bavaria Pilsener / Premium Beer
 44,Bavaria 8.6 (Original)
 45,Lapin Kulta IV A
 46,Grolsch Premium Lager
@@ -54,7 +54,7 @@
 52,Beck's
 53,Hoegaarden Rosée
 54,Platinum Pale Ale
-55,Brooklyn Special Effects
+55,Brooklyn Special Effects (Hoppy Amber/Lager)
 56,Schöfferhofer Grapefruit
 57,Volfas Engelman Grünberger Hefeweizen
 58,Berliner Kindl Jubiläums Pilsener Premium

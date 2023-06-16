@@ -3,7 +3,6 @@ from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
 
-
 db = SQLAlchemy()
 DB_NAME = "database.db"
 
@@ -16,9 +15,11 @@ def create_app():
   with app.app_context():
     from .views import views
     from .auth import auth
+    from .recomm import recomm
 
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
+    app.register_blueprint(recomm, url_prefix='/')
 
     from .models import User, Rate
     create_database(app)

@@ -4131,6 +4131,35 @@ textarea.form-control-lg {
 .navbar-expand .offcanvas .offcanvas-header {
   display: none;
 }
+.comment-container {
+  text-align: left;
+}
+
+.comment {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.username {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.rating {
+  margin-right: 10px;
+  color: #FF9800;
+}
+
+.oneline {
+  font-style: italic;
+}
+
+.divider {
+  border-top: 1px solid #CCC;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .navbar-expand .offcanvas .offcanvas-body {
   display: flex;
   flex-grow: 0;
