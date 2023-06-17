@@ -29,7 +29,9 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         {% if current_user.is_authenticated %}
+                        {% if count >=5 %}
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{url_for('recomm.ver2')}}">추천 맥주</a></li>
+                        {% endif %}
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{url_for('auth.logout')}}">로그아웃</a></li>
                         {% else %}
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{url_for('auth.login')}}">로그인</a></li>
@@ -53,14 +55,14 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">CF 기반 - 맥주 Top 6 - 맥주 커뮤니티</p>
+                <p class="masthead-subheading font-weight-light mb-0">CF 기반 - 맥주 추천 - 맥주 커뮤니티</p>
             </div>
         </header>
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="portfolio">
             <div class="container">
                 <!-- Portfolio Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">나에게 딱 맞는 맥주</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">이 맥주는 어때요?</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
@@ -75,7 +77,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="/static/assets/img/beer_image/{{result.0}}.jpg" alt="..." />
+                            <img class="img-fluid" src="/static/assets/img/beer_image/{{result.0}}.jpg" onerror="this.src='/static/assets/img/beer_image/alt.png'" />
                         </div>
                     </div>
                     <!-- Portfolio Item 2-->
@@ -84,7 +86,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="/static/assets/img/beer_image/{{result.1}}.jpg" alt="..." />
+                            <img class="img-fluid" src="/static/assets/img/beer_image/{{result.1}}.jpg" onerror="this.src='/static/assets/img/beer_image/alt.png'"/>
                         </div>
                     </div>
                     <!-- Portfolio Item 3-->
@@ -93,7 +95,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="/static/assets/img/beer_image/{{result.2}}.jpg" alt="..." />
+                            <img class="img-fluid" src="/static/assets/img/beer_image/{{result.2}}.jpg" onerror="this.src='/static/assets/img/beer_image/alt.png'"/>
                         </div>
                     </div>
                     <!-- Portfolio Item 4-->
@@ -102,7 +104,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="/static/assets/img/beer_image/{{result.3}}.jpg" alt="..." />
+                            <img class="img-fluid" src="/static/assets/img/beer_image/{{result.3}}.jpg" onerror="this.src='/static/assets/img/beer_image/alt.png'" />
                         </div>
                     </div>
                     <!-- Portfolio Item 5-->
@@ -111,7 +113,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="/static/assets/img/beer_image/{{result.4}}.jpg" alt="..." />
+                            <img class="img-fluid" src="/static/assets/img/beer_image/{{result.4}}.jpg" onerror="this.src='/static/assets/img/beer_image/alt.png'" />
                         </div>
                     </div>
                     <!-- Portfolio Item 6-->
@@ -120,7 +122,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="/static/assets/img/beer_image/{{result.5}}.jpg" alt="..." />
+                            <img class="img-fluid" src="/static/assets/img/beer_image/{{result.5}}.jpg" onerror="this.src='/static/assets/img/beer_image/alt.png'" />
                         </div>
                     </div>
                 </div>
@@ -130,7 +132,7 @@
         <section class="page-section bg-primary text-white mb-0" id="about">
             <div class="container">
                 <!-- About Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-white">Information</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -139,14 +141,14 @@
                 </div>
                 <!-- About Section Content-->
                 <div class="row">
-                    <div class="col-lg-4 ms-auto"><p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p></div>
-                    <div class="col-lg-4 me-auto"><p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p></div>
+                    <div class="col-lg-4 ms-auto"><p class="lead">1. 본 서비스는 반드시 로그인이 필요합니다. 사용자의 최애 맥주와 선호 취향에 따라 최근접 협업 필터링으로 가장 유사한 맥주 6개를 메인에 소개합니다.</p></div>
+                    <div class="col-lg-4 me-auto"><p class="lead">2. 각 맥주에 대한 클러스터 유형 및 연도별 평점 트렌드를 보고 직접 평점과 한 줄 평을 남길 수 있습니다. 평점을 5개 이상 남길 시 평점을 기반으로 한 추천 맥주 TOP 3를 조회하실 수 있습니다.</p></div>
                 </div>
                 <!-- About Section Button-->
                 <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/theme/freelancer/">
-                        <i class="fas fa-download me-2"></i>
-                        Free Download!
+                    <a class="btn btn-xl btn-outline-light" href="#portfolio">
+                        <i class="fas fa me-2"></i>
+                        맥주 추천 및 평점 남기기
                     </a>
                 </div>
             </div>
@@ -210,7 +212,7 @@
                           <div class="divider-custom-line"></div>
                         </div>
                         <!-- Portfolio Modal - Image -->
-                        <img class="img-fluid rounded mb-5" src="/static/assets/img/beer_image/{{result.0}}.jpg" alt="..." />
+                        <img class="img-fluid rounded mb-5" src="/static/assets/img/beer_image/{{result.0}}.jpg" alt="/static/assets/img/beer_image/alt.png" />
                         <!-- Portfolio Modal - Text -->
                         <div class="nb-4" id='myDiv1'></div>
                         <script>

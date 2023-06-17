@@ -95,6 +95,7 @@ def index():
   ratings = pd.read_csv('beer\정제된데이터.csv', encoding='utf-8', index_col=0)
   cluster_3 = pd.read_csv('beer\대표군집클러스터링.csv', encoding='utf-8', index_col=0)
   cluster_all = pd.read_csv('beer\전체맥주클러스터링.csv', encoding='utf-8', index_col=0)
+  count = Rate.query.filter(Rate.user_name == current_user.name).count()
   beer_list = beer_list['맥주']
   cluster_3 = cluster_3.values
 
@@ -169,4 +170,4 @@ def index():
   all_rates_4 = Rate.query.filter_by(beer=result[3]).all()
   all_rates_5 = Rate.query.filter_by(beer=result[4]).all()
   all_rates_6 = Rate.query.filter_by(beer=result[5]).all()
-  return render_template('index.html', all_rates1=all_rates_1,all_rates2=all_rates_2,all_rates3=all_rates_3,all_rates4=all_rates_4,all_rates5=all_rates_5,all_rates6=all_rates_6, result=result, beer_list=beer_list,targetJson=targetJson)
+  return render_template('index.html', all_rates1=all_rates_1,all_rates2=all_rates_2,all_rates3=all_rates_3,all_rates4=all_rates_4,all_rates5=all_rates_5,all_rates6=all_rates_6, result=result, beer_list=beer_list,targetJson=targetJson,count=count)
