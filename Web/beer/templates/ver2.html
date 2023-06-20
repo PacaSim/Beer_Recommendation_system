@@ -14,12 +14,44 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/static/css/styles.css" rel="stylesheet" />
     </head>
 
     <body id="page-top">
+      <body>
+  
+        <div class="loader">
+          <i class='bx bx-loader bx-spin'></i>
+        </div>
+        
+        <div class="wrap">
+          <h2>Content</h2>   
+          <script>
+            const loader = document.querySelector('.loader');
+const html = document.querySelector('html');
 
+
+html.style.overflow = 'hidden'; //로딩 중 스크롤 방지
+
+window.addEventListener('load', ()=>{
+
+     setTimeout(() => { //로딩속도 구현
+    
+        loader.style.opacity = '0';
+    html.style.overflow = 'auto'; //스크롤 방지 해제
+        
+        setTimeout(() => {
+          loader.style.display = 'none';
+      }, 400);
+        
+  }, 5000);
+
+})
+          </script> 
+        </div>
       <!-- Navigation-->
       <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
           <div class="container">

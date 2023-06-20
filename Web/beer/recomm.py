@@ -25,13 +25,13 @@ def predict_rating_topsim(ratings_arr, item_sim_arr, n=20):
 
   # 사용자-아이템 평점 행렬의 맥주 개수만큼 루프
   for col in range(ratings_arr.shape[1]):
-      # 유사도 행렬에서 유사도가 큰 순으로 n개의 데이터 행렬의 인덱스 반환
-      top_n_items = [np.argsort(item_sim_arr[:, col])[:-n - 1:-1]]
-      # 개인화된 예측 평점 계산 : 각 col 맥주별(1개), 2496 사용자들의 예측평점
-      for row in range(ratings_arr.shape[0]):
-          pred[row, col] = item_sim_arr[col, :][top_n_items].dot(
-              ratings_arr[row, :][top_n_items].T)
-          pred[row, col] /= np.sum(item_sim_arr[col, :][top_n_items])
+    # 유사도 행렬에서 유사도가 큰 순으로 n개의 데이터 행렬의 인덱스 반환
+    top_n_items = [np.argsort(item_sim_arr[:, col])[:-n - 1:-1]]
+    # 개인화된 예측 평점 계산 : 각 col 맥주별(1개), 2496 사용자들의 예측평점
+    for row in range(ratings_arr.shape[0]):
+      pred[row, col] = item_sim_arr[col, :][top_n_items].dot(
+          ratings_arr[row, :][top_n_items].T)
+      pred[row, col] /= np.sum(item_sim_arr[col, :][top_n_items])
 
   return pred
 
@@ -41,7 +41,7 @@ def get_not_tried_beer(ratings_matrix, userId):
   # 반환된 user_rating은 영화명(title)을 인덱스로 가지는 Series 객체
   user_rating = ratings_matrix.loc[userId, :]
 
-  # user_rating이 0보다 크면 기존에 관란함 영화.
+
   # 대상 인덱스를 추출해 list 객체로 만듦
   tried = user_rating[user_rating > 0].index.tolist()
 
@@ -72,13 +72,13 @@ def recomm_feature(df, col):
   ratings_matrix_T = ratings_matrix.transpose()
   # 아이템-유저 매트릭스로부터 코사인 유사도 구하기
   item_sim = cosine_similarity(ratings_matrix_T, ratings_matrix_T)
-  # cosine_similarity()로 반환된 넘파이 행렬에 영화명을 매핑해 DataFrame으로 변환
+
   item_sim_df = pd.DataFrame(data=item_sim, index=ratings_matrix.columns,
                             columns=ratings_matrix.columns)
   return item_sim_df
 def recomm_beer(item_sim_df, beer_name):
   # 해당 맥주와 유사도가 높은 맥주 5개만 추천
-  return item_sim_df[beer_name].sort_values(ascending=False)[1:7]
+  return item_sim_df[beer_name].sort_values(ascending=False)[1:4]
 
 @recomm.route('/ver2')
 @login_required
@@ -96,8 +96,7 @@ def ver2():
 
   beer = []
   rating = []
-
-  for i in range(1, len(beers)):
+  for i in range(1, 6):
     beer.append(str(beers[i-1][0]) + str(i))
     rating.append(str(user_ratings[i-1][0]) + str(i))
 
@@ -120,7 +119,7 @@ def ver2():
                               columns=ratings_matrix.columns)
 
   # top_n과 비슷한 유저들만 추천에 사용
-  ratings_pred = predict_rating_topsim(ratings_matrix.values, item_sim_df.values, n=5)
+  ratings_pred = predict_rating_topsim(ratings_matrix.values, item_sim_df.values, n=3)
   # 계산된 예측 평점 데이터는 DataFrame으로 재생성
   ratings_pred_matrix = pd.DataFrame(data=ratings_pred, index=ratings_matrix.index,
                                       columns=ratings_matrix.columns)

@@ -4085,6 +4085,35 @@ textarea.form-control-lg {
   .navbar-expand-xxl .offcanvas .offcanvas-header {
     display: none;
   }
+  .loader{
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, 0.7);
+    z-index: 9999;
+    opacity: 1;
+    transition: 0.5s ease;
+  }
+  
+  .loader i{
+    font-size: 80px;
+    position: absolute;
+    top: 50%; left: 50%;
+    margin: -40px 0 0 -40px;
+    color: #fff;
+  }
+  
+
+  .wrap>h2{
+    text-align: center;
+  }
+  
+  .wrap>p{
+    padding: 30px 0;
+    text-align: center;
+  }
+
   .navbar-expand-xxl .offcanvas .offcanvas-body {
     display: flex;
     flex-grow: 0;
