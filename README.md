@@ -1,5 +1,8 @@
 ## Beer_Recommendation_System
 
+![image](https://github.com/PacaSim/Beer_Recommendation_system/assets/116507879/7f4007e5-9b14-46dd-b6b7-fa3f0120c0c8)
+
+
 ### 개발 일정  
 05/28(일) ~ 05/29(월) : 데이터 수집(크롤링), 데이터 전처리  
 05/30(화) ~ 05/31(수) : k-means 모델 훈련  
